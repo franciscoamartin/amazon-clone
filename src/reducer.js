@@ -1,20 +1,5 @@
 export const initialState = {
-  basket: [
-    {
-      id: "123456789",
-      title: "Becoming: A Guided Journal for Discovering Your Voice111",
-      price: 10.97,
-      rating: 5,
-      image: "https://m.media-amazon.com/images/I/51w4zG9Dn6L.jpg",
-    },
-    {
-      id: "123456782",
-      title: "Becoming: A Guided Journal for Discovering Your Voice222",
-      price: 10.97,
-      rating: 5,
-      image: "https://m.media-amazon.com/images/I/51w4zG9Dn6L.jpg",
-    },
-  ],
+  basket: [],
   user: null,
 };
 
@@ -23,6 +8,11 @@ export const getBasketTotal = (basket) =>
 
 const reducer = (state, action) => {
   switch (action.type) {
+    case "SET_USER":
+      return {
+        ...state,
+        user: action.user,
+      };
     case "ADD_TO_BASKET":
       return { ...state, basket: [...state.basket, action.item] };
     case "REMOVE_FROM_BASKET":
